@@ -1,0 +1,47 @@
+import random
+
+from random import shuffle
+def shuffle_word(word):
+    word = list(word)
+    shuffle(word)
+    return "".join(word)
+
+words = ("zoo", "lion", "animal", "sand", "water", "flower", "oven")
+
+[shuffle_word(word) for word in words]
+
+word = random.choice(words)
+
+correct = word
+
+scrambleWord = random.randrange(1,2)
+
+if scrambleWord == 1:
+    word = "zoo"
+
+
+print(
+"""
+
+    This is Jumbler.
+    An interactive game where you unscramble letters to make a word.
+    
+"""
+)
+
+print ("Pick a number from 1 to 7: ", )
+
+print ("The scrambled word is," scrambleWord)
+
+guess = input ("Your guess: ")
+
+while guess != correct and guess != "":
+    print ("Incorrect answer")
+    guess = input("New guess:")
+
+if guess == correct:
+    print ("That's correct!")
+
+print ("Thanks for playing! Play again!")
+
+input ("\n\n Press enter key to exit.")
