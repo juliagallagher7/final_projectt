@@ -1,47 +1,60 @@
+#This is a word shuffler game
+#It can be used by kids to learn how to read and write
+#The computer picks a random word and shuffles up the letters
+#It is presented to the player and they have to unshuffle it
+
 import random
 
-from random import shuffle
-def shuffle_word(word):
-    word = list(word)
-    shuffle(word)
-    return "".join(word)
+#Create a list of words for the computer to shuffle
 
-words = ("zoo", "lion", "animal", "sand", "water", "flower", "oven")
+Mixup = ('zoo', 'lion', 'animal', 'sand', 'water', 'flower', 'oven', 'science',
+        'math', 'english', 'history',)
 
-[shuffle_word(word) for word in words]
+# This tells the computer to pick a random word from the list
 
-word = random.choice(words)
+word = random.choice(Mixup)
+
+#This is a variable for later to check if the guess is correct
 
 correct = word
 
-scrambleWord = random.randrange(1,2)
+# This tells the computer to shuffle the word up
 
-if scrambleWord == 1:
-    word = "zoo"
+jumble =''
 
+while word:
+    position=random.randrange(len(word))
+    jumble+= word[position]
+    word= word[:position] + word[(position + 1):]
 
-print(
-"""
+# This command sets the initial score to 0
 
-    This is Jumbler.
-    An interactive game where you unscramble letters to make a word.
-    
-"""
+score = 0
+
+# Then, this command starts the game
+
+print (
+'''
+    Welcome to Word Shuffle
+    This is a computer game to help your toddlers learn how to read and write.
+    They will be presented with a shuffled word, and will need to unshuffle it.
+'''
 )
+print ('The scrambled word is:', jumble)
 
-print ("Pick a number from 1 to 7: ", )
-
-print ("The scrambled word is," scrambleWord)
-
-guess = input ("Your guess: ")
+guess = input ('Your guess: ')
 
 while guess != correct and guess != "":
-    print ("Incorrect answer")
-    guess = input("New guess:")
+    print ('Incorrect answer')
+    guess = input('New guess:')
 
 if guess == correct:
-    print ("That's correct!")
+    print ('That is correct!')
 
-print ("Thanks for playing! Play again!")
+print ('Thanks for playing! Play again!')
 
-input ("\n\n Press enter key to exit.")
+input ('\n\n Press enter key to exit.')
+
+
+
+
