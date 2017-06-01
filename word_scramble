@@ -1,4 +1,4 @@
-#This is a word shuffler game
+  #This is a word shuffler game
 #It can be used by kids to learn how to read and write
 #The computer picks a random word and shuffles up the letters
 #It is presented to the player and they have to unshuffle it
@@ -40,20 +40,34 @@ print (
     They will be presented with a shuffled word, and will need to unshuffle it.
 '''
 )
-print ('The scrambled word is:', jumble)
 
-guess = input ('Your guess: ')
+# This command runs the game on a loop
 
-while guess != correct and guess != "":
-    print ('Incorrect answer')
-    guess = input('New guess:')
+start = input("Play game?: ")
 
-if guess == correct:
-    print ('That is correct!')
+firstAnswer = 'yes' or "Yes"
+secondAnswer = 'no' or "No"
 
-print ('Thanks for playing! Play again!')
+while start == firstAnswer:
+    print ('The scrambled word is:', jumble)
 
-input ('\n\n Press enter key to exit.')
+    guess = input ('Your guess: ')
+
+    if guess != correct and guess != "":
+        print ('Incorrect answer')
+        guess = input('New guess:')
+
+    elif guess == correct:
+        print ('That is correct!')
+
+    answer =  input("Play again?: ")
+
+
+while start == secondAnswer:
+    print ('Okay, bye!')
+    quit
+    break
+
 
 
 
